@@ -1,0 +1,6 @@
+<VirtualHost *:80>
+	ServerName local-drupal.com
+	DocumentRoot <%= node[:apache][:dir] %>
+	ErrorLog	/var/log/apache2/drupal.error.log
+	CustomLog	/var/log/apache2/drupal.access.log custom
+</VirtualHost>

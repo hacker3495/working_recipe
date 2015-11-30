@@ -1,0 +1,10 @@
+<VirtualHost *:80>
+	ServerName local-hsplanner.com
+	DocumentRoot <%= node[:apache][:dir] %>
+
+	ProxyPass  /  http://<%= node[:apache][:host] %>:<%= node[:passenger][:port] %>
+	ProxyPassReverse  /  http://<%= node[:apache][:host] %>:<%= node[:passenger][:port] %>
+
+	ErrorLog	/var/log/apache2/hsp.error.log
+	CustomLog	/var/log/apache2/hsp.access.log custom
+</VirtualHost>
